@@ -21,9 +21,9 @@ function Navbar() {
       </div>
       {sideMenuOpen && (
         <div className="side-menu">
-          <a href="#">Download the app!</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="/">Download the app!</a>
+          {/* <a href="#">About</a>
+          <a href="#">Contact</a> */}
         </div>
       )}
     </nav>

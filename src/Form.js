@@ -1,17 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
   const [formData, setFormData] = useState({});
+  const history = useNavigate();
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    // do something with the form data
-    console.log(formData);
-  };
+
+    // Log form data to console
+    console.log(event.target.name.value);
+    console.log(event.target.code.value);
+
+    // Navigate to new page
+    history.push("/game-room");
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -25,7 +32,6 @@ function Form() {
           placeholder="ENTER YOUR NAME"
         />
       </div>
-
       <br />
       <div>
         <label>GAME CODE</label>
@@ -38,7 +44,7 @@ function Form() {
         />
       </div>
       <br />
-      <button type="submit" class="big-red-button">
+      <button type="submit" className="big-red-button">
         PLAY
       </button>
     </form>
