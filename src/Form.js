@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Form() {
   const [formData, setFormData] = useState({});
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -13,11 +13,10 @@ function Form() {
     event.preventDefault();
 
     // Log form data to console
-    console.log(event.target.name.value);
-    console.log(event.target.code.value);
-
+    console.log(formData.name);
+    console.log(formData.code);
     // Navigate to new page
-    history.push("/game-room");
+    navigate(`/game-room?code=${formData.code}`);
   }
 
   return (

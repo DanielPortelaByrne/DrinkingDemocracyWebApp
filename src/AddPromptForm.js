@@ -23,23 +23,32 @@ function AddPromptForm({ onAddPrompt }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Prompt text:
+      <div>
+        <label>NEW PROMPT TEXT</label>
         <input
+          className="rounded-inputs"
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
+          placeholder="ENTER YOUR PROMPT"
         />
-      </label>
-      <label>
-        Prompt category:
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        />
-      </label>
-      <button type="submit">Add prompt</button>
+      </div>
+      <br />
+      <div>
+        <label>NEW PROMPT CATEGORY</label>
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="GET IT DOWN YA">GET IT DOWN YA</option>
+          <option value="RULE">RULE</option>
+          <option value="VOTE">VOTE</option>
+          <option value="CHALLENGE">CHALLENGE</option>
+        </select>
+      </div>
+      <br />
+      <button type="submit" className="big-red-button">
+        ADD PROMPT
+      </button>
     </form>
   );
 }
+
+export default AddPromptForm;

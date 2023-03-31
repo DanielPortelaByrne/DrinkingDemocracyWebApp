@@ -8,7 +8,8 @@ app.use(express.json()); // enable JSON request body parsing
 let selectedPrompts = []; // initialize an empty array to store the prompts
 
 app.post("/api/prompts", (req, res) => {
-  selectedPrompts = req.body;
+  // selectedPrompts = req.body;
+  selectedPrompts.push(req.body);
   console.log("Selected prompts received:", selectedPrompts);
   // You can add your code here to handle the selected prompts
   res.json({ message: "Selected prompts received! and working!" });
